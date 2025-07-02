@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contagem Regressiva - 16/08/2025</title>
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 20px;
+      font-size: 2rem;
+    }
+
+    .countdown div {
+      text-align: center;
+    }
+
+    .countdown span {
+      display: block;
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contagem Regressiva para 16/08/2025</h1>
+  <div class="countdown">
+    <div>
+      <div id="days">--</div>
+      <span>dias</span>
+    </div>
+    <div>
+      <div id="hours">--</div>
+      <span>horas</span>
+    </div>
+    <div>
+      <div id="minutes">--</div>
+      <span>minutos</span>
+    </div>
+    <div>
+      <div id="seconds">--</div>
+      <span>segundos</span>
+    </div>
+  </div>
+
+  <script>
+    const targetDate = new Date("2025-08-16T00:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.querySelector(".countdown").innerHTML = "<strong>Chegou o grande dia!</strong>";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

@@ -1,90 +1,464 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contagem Regressiva - 16/08/2025</title>
-  <style>
-    body {
-      background: #111;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ibiapina • Nossa Viagem — 13/09/2025</title>
+    <meta name="description" content="Contagem regressiva e roteiro visual para nossa viagem a Ibiapina, Ceará — 13/09/2025." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+/* ---------- RESET ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+:root{
+  --bg: #0a0f14;
+  --card: rgba(255,255,255,0.08);
+  --glass: rgba(255,255,255,0.12);
+  --text: #e9f1ff;
+  --muted: #a9b7d0;
+  --brand1: #00DC82;
+  --brand2: #36E4DA;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+body{
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 600px at 10% -10%, #0b1f1a 0%, transparent 50%),
+              radial-gradient(1000px 600px at 110% 10%, #111b2a 0%, transparent 50%),
+              linear-gradient(180deg, #06090c 0%, #0a0f14 100%);
+  line-height: 1.55;
+}
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
+/* ---------- NAV ---------- */
+.nav{
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(180deg, rgba(6,9,12,.85), rgba(6,9,12,.35));
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  padding: .8rem 1.2rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav__brand{ display:flex; align-items:center; gap:.6rem; font-weight:800; letter-spacing:.3px; }
+.nav__logo{ width:28px; height:28px; }
+.nav__links a{
+  color: var(--muted); text-decoration: none; margin-left: 1rem; font-weight:600;
+}
+.nav__links a:hover{ color: var(--text); }
 
-    .countdown {
-      display: flex;
-      gap: 20px;
-      font-size: 2rem;
-    }
+/* ---------- HERO ---------- */
+.hero{
+  position: relative; min-height: 88vh; display:grid; place-items:center; text-align:center; overflow:hidden;
+}
+.hero__bg{
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.85)),
+    url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMjQwMCcgaGVpZ2h0PScxNjAwJyB2aWV3Qm94PScwIDAgMjQwMCAxNjAwJyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnPjxsaW5lYXJHcmFkaWVudCBpZD0nZycgeDE9JzAnIHkxPScwJyB4Mj0nMCcgeTI9JzEnPjxzdG9wIG9mZnNldD0nMCUnIHN0b3AtY29sb3I9JyMwMDAwMDAnIG9wYWNpdHk9Jy4zNScvPjxzdG9wIG9mZnNldD0nMTAwJScgc3RvcC1jb2xvcj0nIzAwMDAwMCcgb3BhY2l0eT0nLjg1Jy8+PC9saW5lYXJHcmFkaWVudD48bGluZWFyR3JhZGllbnQgaWQ9J2gnIHgxPScwJyB5MT0nMCcgeDI9JzEnIHkyPScxJz48c3RvcCBvZmZzZXQ9JzAlJyBzdG9wLWNvbG9yPScjMDBEQzgyJy8+PHN0b3Agb2Zmc2V0PScxMDAlJyBzdG9wLWNvbG9yPScjMzZFNERBJy8+PC9saW5lYXJHcmFkaWVudD48cmVjdCB3aWR0aD0nMjQwMCcgaGVpZ2h0PScxNjAwJyBmaWxsPSd1cmwoI2cpJy8+PGNpcmNsZSBjeD0nMTIwMCcgY3k9JzEyMDAnIHI9JzkwMCcgZmlsbD0ndXJsKCNIKScgb3BhY2l0eT0nLjE1Jy8+PC9zdmc+');
+  background-size: cover; background-position: center;
+  transform: scale(1.02);
+  filter: saturate(1.1) contrast(1.05);
+}
+.hero__overlay{
+  position:absolute; inset:0;
+  background: radial-gradient(800px 300px at 50% 0%, rgba(0,220,130,.2), transparent 60%);
+  mix-blend-mode: overlay;
+}
+.hero__content{ position:relative; z-index:1; max-width: 920px; padding: 5rem 1.2rem; }
+.hero h1{ font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; }
+.hero .shine{
+  background: linear-gradient(90deg, var(--brand1), var(--brand2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.subtitle{ margin-top: .75rem; color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); }
+.countdown{
+  margin: 2rem auto 2.2rem; display:flex; gap:.8rem; justify-content:center; flex-wrap:wrap;
+}
+.cd__item{
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.1rem; min-width: 110px; border-radius: 14px;
+}
+.cd__item span{ display:block; font-weight: 800; font-size: clamp(1.8rem, 5vw, 3rem); }
+.cd__item small{ color: var(--muted); font-weight:600; letter-spacing:.8px; }
+.cta{
+  display:inline-block; text-decoration:none; color:#08120c; font-weight:800;
+  background: linear-gradient(90deg, var(--brand1), var(--brand2));
+  padding:.95rem 1.2rem; border-radius: 14px; box-shadow: var(--shadow);
+}
+.cta--outline{
+  background: transparent; color: var(--text);
+  border: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--brand1), var(--brand2)) 1;
+}
 
-    .countdown div {
-      text-align: center;
-    }
+/* ---------- HIGHLIGHTS ---------- */
+.highlights{
+  margin: 3rem auto; padding: 0 1.2rem;
+  max-width: 1100px; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;
+}
+.highlights article{
+  background: var(--card); border:1px solid rgba(255,255,255,.06);
+  padding: 1.2rem; border-radius: 16px; box-shadow: var(--shadow);
+}
+.highlights h3{ margin-bottom:.3rem; }
 
-    .countdown span {
-      display: block;
-      font-size: 1.2rem;
-      color: #aaa;
-    }
-  </style>
-</head>
-<body>
-  <h1>Contagem Regressiva para 16/08/2025</h1>
-  <div class="countdown">
-    <div>
-      <div id="days">--</div>
-      <span>dias</span>
+/* ---------- GALLERY ---------- */
+.gallery{
+  margin: 1rem auto 3.2rem; padding: 0 1.2rem; max-width:1200px;
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1rem;
+}
+.gallery__card{
+  position:relative; overflow:hidden; border-radius:18px; border:1px solid rgba(255,255,255,.06);
+  background: #1116; box-shadow: var(--shadow);
+}
+.gallery__card img{ width:100%; height:280px; object-fit:cover; transform: scale(1.02); transition: transform .5s ease; }
+.gallery__card:hover img{ transform: scale(1.08); }
+.gallery__card figcaption{ position:absolute; left:12px; bottom:10px; background: rgba(0,0,0,.45); padding:.3rem .6rem; border-radius:10px; font-size:.9rem; }
+
+/* ---------- ITINERARY ---------- */
+.itinerary{
+  margin: 0 auto 3rem; padding: 0 1.2rem; max-width:1200px; display:grid;
+  grid-template-columns: 1.2fr .8fr; gap: 1.2rem;
+}
+.itinerary__card{
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius: 18px; padding: 1.4rem; box-shadow: var(--shadow);
+}
+.timeline{ list-style: none; margin-top:.6rem; display:grid; gap:.8rem; }
+.timeline li{ position:relative; padding-left: 1.6rem; }
+.timeline .dot{ position:absolute; left:0; top:.4rem; width:.75rem; height:.75rem; border-radius:999px; background: linear-gradient(90deg, var(--brand1), var(--brand2)); box-shadow: 0 0 0 4px rgba(0,220,130,.12); }
+.itinerary__photo{
+  border-radius: 18px; overflow:hidden; border:1px solid rgba(255,255,255,.06); box-shadow: var(--shadow);
+}
+.itinerary__photo img{ width:100%; height:100%; object-fit:cover; }
+
+/* ---------- MAP ---------- */
+.map{ max-width: 1100px; margin: 0 auto 3.5rem; padding: 0 1.2rem; text-align:center; }
+.map__frame{ margin-top:1rem; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.06); box-shadow: var(--shadow); }
+.map__frame iframe{ width:100%; height: 420px; border:0; }
+
+/* ---------- FOOTER ---------- */
+.footer{
+  padding: 2rem 1.2rem; text-align:center; color: var(--muted);
+  border-top:1px solid rgba(255,255,255,.06);
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+}
+
+/* ---------- ADMIN PANEL (embed tool) ---------- */
+.embed-panel{
+  position: fixed; right: 16px; bottom: 16px; width: 360px; max-width: calc(100% - 32px);
+  background: rgba(0,0,0,.75); color: #fff; border:1px solid rgba(255,255,255,.15);
+  border-radius: 14px; padding: 12px; box-shadow: var(--shadow); display:none; z-index: 999;
+}
+.embed-panel h4{ margin-bottom:8px; }
+.embed-panel label{ font-size: 12px; color: #cbd5e1; display:block; margin-top:6px; }
+.embed-panel input{
+  width: 100%; padding: 8px; border-radius: 10px; border: 1px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.08); color: #fff; outline: none;
+}
+.embed-panel .row{ display:grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+.embed-panel .btn{
+  width: 100%; margin-top: 10px; padding: 10px; border-radius: 12px; border: 0; cursor: pointer; font-weight: 800;
+  background: linear-gradient(90deg, var(--brand1), var(--brand2)); color: #08120c;
+}
+.embed-panel .muted{ font-size: 12px; color: #9aa6b2; margin-top:6px; }
+    </style>
+  </head>
+  <body>
+    <!-- Inline SVG favicon -->
+    <svg width="0" height="0" style="position:absolute">
+      <symbol id="favicon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#00DC82"/>
+            <stop offset="1" stop-color="#36E4DA"/>
+          </linearGradient>
+        </defs>
+        <circle cx="32" cy="32" r="28" fill="url(#g)"/>
+        <path d="M16 40 L28 20 L36 31 L48 20 L42 44 L22 44 Z" fill="#fff" opacity="0.95"/>
+      </symbol>
+    </svg>
+
+    <header class="nav">
+      <div class="nav__brand">
+        <svg class="nav__logo" viewBox="0 0 64 64" aria-hidden="true"><use href="#favicon" /></svg>
+        <span>Ibiapina Trip</span>
+      </div>
+      <nav class="nav__links">
+        <a href="#contador">Contador</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#roteiro">Roteiro</a>
+        <a href="#mapa">Mapa</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero" role="region" aria-label="Hero - Contagem regressiva">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+          <h1>Bora pra Ibiapina! <span class="shine">13/09/2025</span></h1>
+          <p class="subtitle">Malas prontas, coração leve e muita foto bonita da serra! 🌄</p>
+          <div id="contador" class="countdown" aria-live="polite">
+            <div class="cd__item"><span id="cd-days">--</span><small>Dias</small></div>
+            <div class="cd__item"><span id="cd-hours">--</span><small>Horas</small></div>
+            <div class="cd__item"><span id="cd-mins">--</span><small>Min</small></div>
+            <div class="cd__item"><span id="cd-secs">--</span><small>Seg</small></div>
+          </div>
+          <a href="#roteiro" class="cta">Ver roteiro</a>
+        </div>
+      </section>
+
+      <!-- HIGHLIGHTS -->
+      <section class="highlights">
+        <article>
+          <h3>Clima de serra</h3>
+          <p>No alto da Ibiapaba, a vibe é fresquinha, com mirantes e muito verde.</p>
+        </article>
+        <article>
+          <h3>Fotos & trilhas</h3>
+          <p>Prepare o celular: cachoeiras, vales e paisagens cinematográficas.</p>
+        </article>
+        <article>
+          <h3>Rolês tranquilos</h3>
+          <p>Café, tapioca e pôr do sol — roteiro gostoso, sem correrias.</p>
+        </article>
+      </section>
+
+      <!-- GALERIA -->
+      <section id="galeria" class="gallery" aria-label="Galeria de fotos">
+        <figure class="gallery__card">
+          <img id="img1" loading="lazy" alt="Serra & céu azul" />
+          <figcaption>Serra & céu azul</figcaption>
+        </figure>
+        <figure class="gallery__card">
+          <img id="img2" loading="lazy" alt="Cachoeira" />
+          <figcaption>Cachoeira</figcaption>
+        </figure>
+        <figure class="gallery__card">
+          <img id="img3" loading="lazy" alt="Trilha e verde" />
+          <figcaption>Trilha e verde</figcaption>
+        </figure>
+        <figure class="gallery__card">
+          <img id="img4" loading="lazy" alt="Montanhas do Ceará" />
+          <figcaption>Montanhas do Ceará</figcaption>
+        </figure>
+      </section>
+
+      <!-- ROTEIRO -->
+      <section id="roteiro" class="itinerary" aria-label="Roteiro da viagem">
+        <div class="itinerary__card">
+          <h2>Roteiro sugerido</h2>
+          <ul class="timeline">
+            <li><span class="dot"></span><strong>Saída</strong> — Sábado (13/09), manhã. Café reforçado e estrada.</li>
+            <li><span class="dot"></span><strong>Chegada em Ibiapina</strong> — Check-in, almoço leve e descanso.</li>
+            <li><span class="dot"></span><strong>Mirante & pôr do sol</strong> — Golden hour pra fotão.</li>
+            <li><span class="dot"></span><strong>Domingo</strong> — Trilha/cachoeira de manhã e volta após o almoço.</li>
+          </ul>
+          <a href="#mapa" class="cta cta--outline">Ver no mapa</a>
+        </div>
+        <div class="itinerary__photo">
+          <img id="imgRoad" alt="Estrada na serra" loading="lazy" />
+        </div>
+      </section>
+
+      <!-- MAPA -->
+      <section id="mapa" class="map" aria-label="Mapa">
+        <h2>Destino: Ibiapina, Ceará</h2>
+        <p>Pra se localizar rapidinho:</p>
+        <div class="map__frame">
+          <iframe
+            title="Mapa de Ibiapina, CE"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Ibiapina%2C%20Cear%C3%A1&output=embed">
+          </iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Feito com carinho 💚 — Viagem: <strong>13/09/2025</strong>.</p>
+      <p class="muted">Dica: pressione <strong>E</strong> para abrir o painel e embutir imagens do Unsplash neste arquivo.</p>
+    </footer>
+
+    <!-- Painel para incorporar imagens (abra com a tecla E) -->
+    <div class="embed-panel" id="embedPanel" role="dialog" aria-modal="true" aria-label="Incorporar imagens">
+      <h4>Incorporar imagens do Unsplash (Base64)</h4>
+      <label>Hero (paisagem de serra):</label>
+      <input id="uHero" placeholder="URL da imagem do Unsplash para o hero" />
+      <div class="row">
+        <div>
+          <label>Galeria 1 (serra):</label>
+          <input id="u1" placeholder="URL Unsplash 1" />
+        </div>
+        <div>
+          <label>Galeria 2 (cachoeira):</label>
+          <input id="u2" placeholder="URL Unsplash 2" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Galeria 3 (trilha):</label>
+          <input id="u3" placeholder="URL Unsplash 3" />
+        </div>
+        <div>
+          <label>Galeria 4 (montanhas):</label>
+          <input id="u4" placeholder="URL Unsplash 4" />
+        </div>
+      </div>
+      <label>Foto lateral do roteiro (estrada):</label>
+      <input id="uRoad" placeholder="URL Unsplash estrada" />
+      <button class="btn" id="btnEmbed">Incorporar & baixar HTML</button>
+      <div class="muted">Dica: use links de imagem direta do Unsplash (ex.: <code>https://images.unsplash.com/photo-...</code>)</div>
     </div>
-    <div>
-      <div id="hours">--</div>
-      <span>horas</span>
-    </div>
-    <div>
-      <div id="minutes">--</div>
-      <span>minutos</span>
-    </div>
-    <div>
-      <div id="seconds">--</div>
-      <span>segundos</span>
-    </div>
-  </div>
 
-  <script>
-    const targetDate = new Date("2025-08-16T00:00:00");
+    <script>
+      // COUNTDOWN
+      (function(){
+        const pad = (n) => String(n).padStart(2, '0');
+        const target = new Date('2025-09-13T08:00:00-03:00');
+        const el = {
+          d: document.getElementById('cd-days'),
+          h: document.getElementById('cd-hours'),
+          m: document.getElementById('cd-mins'),
+          s: document.getElementById('cd-secs'),
+        };
+        function tick(){
+          const now = new Date();
+          let diff = target - now;
+          if (diff < 0) diff = 0;
+          const sec = Math.floor(diff / 1000);
+          const days = Math.floor(sec / 86400);
+          const hours = Math.floor((sec % 86400) / 3600);
+          const mins = Math.floor((sec % 3600) / 60);
+          const secs = sec % 60;
+          el.d.textContent = pad(days);
+          el.h.textContent = pad(hours);
+          el.m.textContent = pad(mins);
+          el.s.textContent = pad(secs);
+        }
+        tick(); setInterval(tick, 1000);
 
-    function updateCountdown() {
-      const now = new Date();
-      const diff = targetDate - now;
+        // Anchor smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+          a.addEventListener('click', e => {
+            const id = a.getAttribute('href').slice(1);
+            const t = document.getElementById(id);
+            if(t){ e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+          });
+        });
+      })();
 
-      if (diff <= 0) {
-        document.querySelector(".countdown").innerHTML = "<strong>Chegou o grande dia!</strong>";
-        return;
+      // Placeholders: SVGs (já são base64 embutidas)
+      const placeholderGallery = 'data:image/svg+xml;base64,' + btoa(`<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#22c55e"/></linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/><g fill="rgba(255,255,255,0.4)"><circle cx="200" cy="760" r="140"/><circle cx="430" cy="790" r="110"/><circle cx="660" cy="770" r="130"/><circle cx="980" cy="780" r="150"/><circle cx="1280" cy="800" r="120"/></g></svg>`);
+      const placeholderTall = 'data:image/svg+xml;base64,' + btoa(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1400"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#22c55e"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/></svg>`);
+
+      // Aplica placeholders iniciais (para já ficar bonitinho)
+      document.getElementById('img1').src = placeholderGallery;
+      document.getElementById('img2').src = placeholderGallery;
+      document.getElementById('img3').src = placeholderGallery;
+      document.getElementById('img4').src = placeholderGallery;
+      document.getElementById('imgRoad').src = placeholderTall;
+
+      // Painel de incorporação: abrir/fechar com 'E'
+      const panel = document.getElementById('embedPanel');
+      document.addEventListener('keydown', (e) => {
+        if (e.key.toLowerCase() === 'e') {
+          panel.style.display = panel.style.display === 'none' || !panel.style.display ? 'block' : 'none';
+        }
+      });
+
+      // Converte URL -> dataURL base64
+      async function urlToDataURL(url){
+        // Importante para Unsplash: pedir imagens com parâmetro de tamanho e formato
+        const tune = (u)=>{
+          try{
+            const uu = new URL(u);
+            if(uu.hostname.includes('images.unsplash.com')){
+              uu.searchParams.set('auto','format');
+              uu.searchParams.set('q','80');
+              // tamanho sugerido por seção
+              if (u.includes('hero')) uu.searchParams.set('w','2400');
+            }
+            return uu.toString();
+          }catch{return url;}
+        };
+        const res = await fetch(tune(url), { mode:'cors' });
+        const blob = await res.blob();
+        const b64 = await new Promise((resolve,reject)=>{
+          const fr = new FileReader();
+          fr.onload = () => resolve(fr.result);
+          fr.onerror = reject;
+          fr.readAsDataURL(blob);
+        });
+        return b64; // já no formato data:<mime>;base64,...
       }
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
+      // Gera download do HTML atual (com base64 embutidas)
+      function downloadCurrentHTML(filename='ibiapina-offline.html'){
+        const doctype = '<!DOCTYPE html>';
+        const html = document.documentElement.outerHTML;
+        const blob = new Blob([doctype + '\n' + html], { type: 'text/html;charset=utf-8' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+      }
 
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-      document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-      document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
-    }
+      // Botão incorporar
+      document.getElementById('btnEmbed').addEventListener('click', async ()=>{
+        const uHero = document.getElementById('uHero').value.trim();
+        const u1 = document.getElementById('u1').value.trim();
+        const u2 = document.getElementById('u2').value.trim();
+        const u3 = document.getElementById('u3').value.trim();
+        const u4 = document.getElementById('u4').value.trim();
+        const uRoad = document.getElementById('uRoad').value.trim();
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  </script>
-</body>
+        // Mapeia alvos
+        const pairs = [
+          [uHero, '.hero__bg', true],      // como background-image
+          [u1, '#img1', false],
+          [u2, '#img2', false],
+          [u3, '#img3', false],
+          [u4, '#img4', false],
+          [uRoad, '#imgRoad', false],
+        ].filter(p => p[0]);
+
+        // Feedback visual
+        const btn = document.getElementById('btnEmbed');
+        btn.disabled = true; btn.textContent = 'Baixando imagens...';
+
+        try{
+          for (const [url, sel, isBg] of pairs){
+            const dataUrl = await urlToDataURL(url);
+            if(isBg){
+              const bg = document.querySelector(sel);
+              // Substitui a imagem do HERO (é o primeiro background da camada .hero__bg)
+              bg.style.backgroundImage = `linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.85)), url('${dataUrl}')`;
+            }else{
+              const img = document.querySelector(sel);
+              img.src = dataUrl;
+            }
+          }
+          btn.textContent = 'Gerando HTML para download...';
+          // Fecha o painel e dispara o download
+          panel.style.display = 'none';
+          downloadCurrentHTML('ibiapina-offline.html');
+          setTimeout(()=>{ btn.disabled = false; btn.textContent = 'Incorporar & baixar HTML'; }, 1200);
+        }catch(err){
+          console.error(err);
+          alert('Não consegui baixar/embutir alguma imagem. Verifique as URLs do Unsplash (use links que começam com https://images.unsplash.com/...).');
+          btn.disabled = false; btn.textContent = 'Incorporar & baixar HTML';
+        }
+      });
+    </script>
+  </body>
 </html>
